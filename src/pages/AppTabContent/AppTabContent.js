@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import {
   Dimensions
 } from 'react-native';
+// 这里注意每个页面要单独引入，用 * as的方式会导致加载不到
 import HomeTabP from "../../pages/HomeTab/HomeTab"
 import SecondTabP from "../../pages/SecondTab/SecondTab"
 
@@ -17,7 +18,8 @@ function px2dp(px) {
 
 // 两个参数 routeConfigs: NavigationRouteConfigMap,  config: TabNavigatorConfig = {}
 // 一个route对应的页面和tab图标， 一个切换的样式整个tab栏的样式
-//tab
+
+// 重要！！此处定义的tabBarLabel字段会跟app.js处定义的路由同级（即两处互通，在这里定义了app.js外面就无需再定义）
 export default AppTabContent = createBottomTabNavigator({
 	HomeTab: {screen: HomeTabP, navigationOptions: {
 		tabBarLabel: 'HomeTab',
