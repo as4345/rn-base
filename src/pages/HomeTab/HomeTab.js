@@ -9,12 +9,21 @@ import {
   Button,
 } from 'react-native';
 
+import * as util from "../../utils"
+
 class HomeTab extends Component {
   static navigationOptions = {
     title: 'Welcome',
   }
   state = {
     text: ''
+  }
+  async componentDidMount() {
+    let res = await util.ax({
+      url: "https://www.apiopen.top/journalismApi",
+      type: "get",
+    })
+    console.log(res)
   }
   render() {
     const { navigate } = this.props.navigation

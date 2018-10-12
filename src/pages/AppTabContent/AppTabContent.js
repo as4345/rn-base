@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import {
   Dimensions
 } from 'react-native';
-import * as pages from '../../pages'
 import HomeTabP from "../../pages/HomeTab/HomeTab"
 import SecondTabP from "../../pages/SecondTab/SecondTab"
 

@@ -13,12 +13,13 @@ class Home extends Component {
       title: 'Welcome',
     };
     render() {
+      const { navigate } = this.props.navigation;
       return (
         <View>
           <Text>这是第一一页</Text>
           <Button
             title="Go to HomeTab page"
-            onPress={() =>{}}
+            onPress={() =>{navigate('HomeTab', { name: 'Jane' })}}
           />
         </View>
       );
