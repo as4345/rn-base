@@ -1,0 +1,23 @@
+export default {
+    english: '英文',
+    chinese: '中文',
+    changeToEnglish: '切換到英文',
+    changeToChinese: '切換到中文',
+    changeToChineseHants: '切換到繁體',
+    changeToSystem: '切換到系統語言',
+    homePage: '首頁',
+    test: '測試',
+    
+    register: '註冊',
+    username: '用戶名',
+    inputUsername: '請輸入用戶名',
+    password: '密碼',
+    inputPassword: '請輸入密碼',
+    verificationCode: '驗證碼',
+    inputVeriCode: '請輸入驗證碼',
+    login: '登錄',
+    forgetPassword: '忘記密碼',
+    home: '首頁',
+    incubation: '孵化記錄',
+    mine: '我的',
+  }

@@ -1,3 +1,11 @@
 {
-  "presets": ["react-native", "react-native-stage-0"]
+  "presets": ["module:metro-react-native-babel-preset"],
+  "plugins": [
+    ["import", { "libraryName": "antd-mobile-rn" }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/transform-runtime", {
+      "helpers": true,
+      "regenerator": false
+    }]
+  ]
 }

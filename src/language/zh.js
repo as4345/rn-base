@@ -1,0 +1,23 @@
+export default {
+    english: '英文',
+    chinese: '中文',
+    changeToEnglish: '切换到英文',
+    changeToChinese: '切换到中文',
+    changeToChineseHants: '切换到繁体',
+    changeToSystem: '切换到系统语言',
+    homePage: '首页',
+    test: '测试',
+    
+    register: '注册',
+    username: '用户名',
+    inputUsername: '请输入用户名',
+    password: '密码',
+    inputPassword: '请输入密码',
+    verificationCode: '验证码',
+    inputVeriCode: '请输入验证码',
+    login: '登录',
+    forgetPassword: '忘记密码',
+    home: '首页',
+    incubation: '孵化记录',
+    mine: '我的',
+  }
