@@ -8,7 +8,7 @@ export const get = req.request.get
 import Store from './store'
 export const store  = Store
 
-import Config from '../config'
+import * as Config from '../config'
 export const config = Config
 
 // 样式方法属性
@@ -20,4 +20,7 @@ import * as key from './pageKey'
 export const KEY = key;
 
 export const storage = AsyncStorage
+
+import Download from './download'
+export const download = Download
 

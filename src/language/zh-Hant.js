@@ -8,6 +8,7 @@ export default {
     homePage: '首頁',
     test: '測試',
     
+    managerMoney: '理财',
     register: '註冊',
     username: '用戶名',
     inputUsername: '請輸入用戶名',

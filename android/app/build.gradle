@@ -96,13 +96,17 @@ def enableProguardInReleaseBuilds = false
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "com.awesomeproject"
+        applicationId "com.jubaopen"
         minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.1"
+        versionName "1.2"
+        
+        targetSdkVersion 27
+        vectorDrawables.useSupportLibrary = true
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -166,6 +170,8 @@ configurations.all {
 }
 
 dependencies {
+    compile project(':react-native-fs')
+    compile project(':react-native-image-crop-picker')
     compile project(':react-native-i18n')
     compile project(':react-native-device-info')
     compile project(':react-native-linear-gradient')

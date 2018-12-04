@@ -1,33 +1,51 @@
+/* tslint:disable:no-unused-variable */
+// tslint:disable:jsx-no-multiline-js
 import React from 'react';
-import { Alert, View } from 'react-native';
-import { SearchBar } from 'antd-mobile-rn';
+import { Button, WhiteSpace, WingBlank } from 'antd-mobile-rn';
 
-export default class SearchBarDemo extends React.Component {
-  state = {
-    value: '美食',
-  };
+/* tslint:disable:no-console */
+export default () => (
+  <WingBlank>
+    <WhiteSpace />
+    <Button>default</Button>
+    <WhiteSpace />
+    <Button disabled>default disabled</Button>
+    <WhiteSpace />
 
-  onChange = (value) => {
-    this.setState({ value });
-  }
+    <Button type="primary">primary</Button>
+    <WhiteSpace />
+    <Button type="primary" disabled>
+      primary disabled
+    </Button>
+    <WhiteSpace />
 
-  clear = () => {
-    this.setState({ value: '' });
-  }
+    <Button type="warning">warning</Button>
+    <WhiteSpace />
+    <Button type="warning" disabled>
+      warning disabled
+    </Button>
+    <WhiteSpace />
 
-  render() {
-    return (
-      <View style={{ marginTop: 30 }}>
-        <SearchBar defaultValue="初始值" placeholder="搜索" />
-        <SearchBar
-          value={this.state.value}
-          placeholder="搜索"
-          onSubmit={(value) => Alert.alert(value)}
-          onCancel={this.clear}
-          onChange={this.onChange}
-          showCancelButton
-        />
-      </View>
-    );
-  }
-}
+    <Button loading>loading button</Button>
+
+    <Button activeStyle={false}>无点击反馈</Button><WhiteSpace />
+    <Button activeStyle={{ backgroundColor: 'red' }}>custom feedback style</Button><WhiteSpace />
+
+    <WingBlank
+      style={{
+        marginTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
+      <Button type="ghost">ghost</Button>
+      <Button type="ghost" disabled>
+        ghost disabled
+      </Button>
+      <Button type="ghost" size="small">
+        ghost
+      </Button>
+    </WingBlank>
+  </WingBlank>
+);

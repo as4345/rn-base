@@ -1,0 +1,306 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+MERGED from [:react-native-fs] D:\work\jbp-rn\node_modules\react-native-fs\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-28:12
+MERGED from [:react-native-i18n] D:\work\jbp-rn\node_modules\react-native-i18n\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-22:12
+MERGED from [:react-native-linear-gradient] D:\work\jbp-rn\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.57.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\react-native-0.57.1.aar\ac757d188e099d07b2dcd08dda58616f\AndroidManifest.xml:2:1-15:12
+MERGED from [com.github.yalantis:ucrop:2.2.2-native] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\ucrop-2.2.2-native.aar\540deedd49c18b356ae2d8a51ee1d0e0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\0d1e8283cd4c2b111946f6c80674abda\AndroidManifest.xml:17:1-22:12
+MERGED from [id.zelory:compressor:2.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\compressor-2.1.0.aar\9dea3f95f9c49ab732ad07248120752d\AndroidManifest.xml:2:1-12:12
+MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\86e6a86147a0c7d242d5cfd48668498e\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\51fe6da506629c7f49d72dc271173b85\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\04f521ea44ea46d61bb1da7e31f0dcb6\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\a01b44e6199c5e6062d2a5bb2cfa8f52\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3bc39ccf0d053c20dc28420a79eb2bfe\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\4a91fcbe0b32608bd098109f1cb3ffd0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\def38f5bc68212f02969fb5809fac97b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\4cd6aeed02b595db94e489695965741f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\47f8a8690488180751e554f10f21ee7f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\12ab7601adc553d50a995df4e0d4e4f4\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\0d79783815960735cbf8674f199c8836\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\18168ea75db7cb26b13b937d7eaa8f3f\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\7027aad4da9e3f59fa79ec3113347f47\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\f32ebf2863982dfe30ceefd5cb2fa8e4\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\a36d3b62d0fc7940d1fd75e32bc10b8a\AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r236355] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\android-jsc-r236355.aar\e6c2d11c8f1af54e0c7d82a390a30413\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\b72f82033449b483452707b24055dbbd\AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b978a74ea12c184f5fab6694f422ccef\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a0a9aa1ace91f6a45a56280fb33d9223\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3649ca4db62a95bff8c6c62b52897d5d\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\84f9c804805898315c21e814836c8eca\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+	package
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:2:5-33
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.57.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\react-native-0.57.1.aar\ac757d188e099d07b2dcd08dda58616f\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.57.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\react-native-0.57.1.aar\ac757d188e099d07b2dcd08dda58616f\AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:5:22-75
+uses-permission#android.permission.CAMERA
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:6:5-64
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:6:22-62
+uses-feature#android.hardware.camera
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:7:5-85
+	android:required
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:7:58-82
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:7:19-57
+uses-feature#android.hardware.camera.front
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:8:5-91
+	android:required
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:8:64-88
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:8:19-63
+application
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:9:5-26:19
+MERGED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:5-26:19
+MERGED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:5-26:19
+MERGED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-20:19
+MERGED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-20:19
+MERGED from [com.facebook.react:react-native:0.57.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\react-native-0.57.1.aar\ac757d188e099d07b2dcd08dda58616f\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.57.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\react-native-0.57.1.aar\ac757d188e099d07b2dcd08dda58616f\AndroidManifest.xml:13:5-20
+MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\86e6a86147a0c7d242d5cfd48668498e\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\86e6a86147a0c7d242d5cfd48668498e\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\51fe6da506629c7f49d72dc271173b85\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\51fe6da506629c7f49d72dc271173b85\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\04f521ea44ea46d61bb1da7e31f0dcb6\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\04f521ea44ea46d61bb1da7e31f0dcb6\AndroidManifest.xml:25:5-29:19
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\a36d3b62d0fc7940d1fd75e32bc10b8a\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\a36d3b62d0fc7940d1fd75e32bc10b8a\AndroidManifest.xml:11:5-20
+	android:label
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:11:7-39
+	android:icon
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:12:7-41
+	android:allowBackup
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:13:7-34
+	android:theme
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:14:7-38
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:10:7-38
+activity#com.awesomeproject.MainActivity
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:15:7-24:18
+	android:label
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:17:9-41
+	android:windowSoftInputMode
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:19:9-51
+	android:configChanges
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:18:9-79
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:16:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:20:9-23:25
+action#android.intent.action.MAIN
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:21:13-65
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:21:21-62
+category#android.intent.category.LAUNCHER
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:22:13-73
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:22:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:25:7-84
+	android:name
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:25:17-81
+uses-sdk
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-fs] D:\work\jbp-rn\node_modules\react-native-fs\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-fs] D:\work\jbp-rn\node_modules\react-native-fs\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:6:5-8:41
+MERGED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:6:5-8:41
+MERGED from [:react-native-i18n] D:\work\jbp-rn\node_modules\react-native-i18n\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-i18n] D:\work\jbp-rn\node_modules\react-native-i18n\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] D:\work\jbp-rn\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] D:\work\jbp-rn\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\react-native-0.57.1.aar\ac757d188e099d07b2dcd08dda58616f\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\react-native-0.57.1.aar\ac757d188e099d07b2dcd08dda58616f\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yalantis:ucrop:2.2.2-native] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\ucrop-2.2.2-native.aar\540deedd49c18b356ae2d8a51ee1d0e0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yalantis:ucrop:2.2.2-native] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\ucrop-2.2.2-native.aar\540deedd49c18b356ae2d8a51ee1d0e0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\0d1e8283cd4c2b111946f6c80674abda\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\0d1e8283cd4c2b111946f6c80674abda\AndroidManifest.xml:20:5-44
+MERGED from [id.zelory:compressor:2.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\compressor-2.1.0.aar\9dea3f95f9c49ab732ad07248120752d\AndroidManifest.xml:8:5-10:41
+MERGED from [id.zelory:compressor:2.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\compressor-2.1.0.aar\9dea3f95f9c49ab732ad07248120752d\AndroidManifest.xml:8:5-10:41
+MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\86e6a86147a0c7d242d5cfd48668498e\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\86e6a86147a0c7d242d5cfd48668498e\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\51fe6da506629c7f49d72dc271173b85\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\51fe6da506629c7f49d72dc271173b85\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\04f521ea44ea46d61bb1da7e31f0dcb6\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\04f521ea44ea46d61bb1da7e31f0dcb6\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\a01b44e6199c5e6062d2a5bb2cfa8f52\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\a01b44e6199c5e6062d2a5bb2cfa8f52\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3bc39ccf0d053c20dc28420a79eb2bfe\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3bc39ccf0d053c20dc28420a79eb2bfe\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\4a91fcbe0b32608bd098109f1cb3ffd0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\4a91fcbe0b32608bd098109f1cb3ffd0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\def38f5bc68212f02969fb5809fac97b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\def38f5bc68212f02969fb5809fac97b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\4cd6aeed02b595db94e489695965741f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\4cd6aeed02b595db94e489695965741f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\47f8a8690488180751e554f10f21ee7f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\47f8a8690488180751e554f10f21ee7f\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\12ab7601adc553d50a995df4e0d4e4f4\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\12ab7601adc553d50a995df4e0d4e4f4\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\0d79783815960735cbf8674f199c8836\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\0d79783815960735cbf8674f199c8836\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\18168ea75db7cb26b13b937d7eaa8f3f\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\18168ea75db7cb26b13b937d7eaa8f3f\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\7027aad4da9e3f59fa79ec3113347f47\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\7027aad4da9e3f59fa79ec3113347f47\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\f32ebf2863982dfe30ceefd5cb2fa8e4\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\f32ebf2863982dfe30ceefd5cb2fa8e4\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\a36d3b62d0fc7940d1fd75e32bc10b8a\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\a36d3b62d0fc7940d1fd75e32bc10b8a\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r236355] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\android-jsc-r236355.aar\e6c2d11c8f1af54e0c7d82a390a30413\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r236355] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\android-jsc-r236355.aar\e6c2d11c8f1af54e0c7d82a390a30413\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\b72f82033449b483452707b24055dbbd\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\b72f82033449b483452707b24055dbbd\AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b978a74ea12c184f5fab6694f422ccef\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b978a74ea12c184f5fab6694f422ccef\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a0a9aa1ace91f6a45a56280fb33d9223\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a0a9aa1ace91f6a45a56280fb33d9223\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3649ca4db62a95bff8c6c62b52897d5d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3649ca4db62a95bff8c6c62b52897d5d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\84f9c804805898315c21e814836c8eca\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\84f9c804805898315c21e814836c8eca\AndroidManifest.xml:20:5-44
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:react-native-fs] D:\work\jbp-rn\node_modules\react-native-fs\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-81
+MERGED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-81
+MERGED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from [:react-native-fs] D:\work\jbp-rn\node_modules\react-native-fs\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from D:\work\jbp-rn\android\app\src\main\AndroidManifest.xml:1:1-28:12 reason: com.rnfs requested WRITE_EXTERNAL_STORAGE
+provider#android.support.v4.content.FileProvider
+ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:13:9-21:20
+	android:grantUriPermissions
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:17:13-47
+	android:authorities
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:15:13-60
+	android:exported
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:16:13-37
+	android:name
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:14:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:18:13-20:58
+	android:resource
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:20:17-55
+	android:name
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:19:17-67
+activity#com.yalantis.ucrop.UCropActivity
+ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:23:9-25:72
+	android:theme
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:25:13-69
+	android:name
+		ADDED from [:react-native-image-crop-picker] D:\work\jbp-rn\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:24:13-60
+receiver#com.learnium.RNDeviceInfo.RNDeviceReceiver
+ADDED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:9-19:20
+	android:enabled
+		ADDED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:14:13-35
+	android:exported
+		ADDED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:15:13-36
+	android:name
+		ADDED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:13:13-70
+intent-filter#action:name:com.android.vending.INSTALL_REFERRER
+ADDED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:16:13-18:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:17:17-79
+	android:name
+		ADDED from [:react-native-device-info] D:\work\jbp-rn\node_modules\react-native-device-info\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:17:25-76
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\24c9d013bd4440dab7af02c29782ce7e\AndroidManifest.xml:23:5-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\e906f1fa7b19f8ed1534e4343a639588\AndroidManifest.xml:23:22-79
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\d309d32b32c95aa9db3f9d7313853c4b\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\c1d6b166d70c56449d23fe7892037fc6\AndroidManifest.xml:24:13-58
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\04f521ea44ea46d61bb1da7e31f0dcb6\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\04f521ea44ea46d61bb1da7e31f0dcb6\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b7f2c89fa2110375dd084f4546cf5c7d\AndroidManifest.xml:27:13-51

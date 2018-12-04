@@ -12,7 +12,8 @@ import {
 } from 'react-native'
 import {
     List,
-    InputItem
+    InputItem,
+    Toast
 } from 'antd-mobile-rn'
 
 import HatchBlock from '../components/HatchBlock'
@@ -33,20 +34,54 @@ class ManagerMoney extends Component {
     }
 
     componentDidMount() {
+        this.getRecord()
+    }
+
+    // 获取孵化记录
+    getRecord = async () => {
+        // 更新孵化记录页数据
+        Toast.loading('加载中', 20)
+        const res = await u.post(u.config.baseUrl + '/common/v1/Record/getDayincomLog')
+        Toast.hide()
+        if (res.code != 0) {
+            Toast.fail(res.msg, 2)
+            return 
+        }
+        u.store.hatchRecord = res.data
+    }
+    componentDidUpdate() {
+        this.refs.scrollView.scrollTo({x: 0, y: 0, animated: true})
     }
 
     render() {
         return (
-            <ScrollView style={s.container}>
+            <ScrollView style={s.container} ref='scrollView'>
                 <StatusBar
                     animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden
                     hidden={false}  //是否隐藏状态栏。
                     backgroundColor='#000' //状态栏的背景色
-                    translucent={true}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
+                    translucent={false}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
                     barStyle='light-content'
                 />
                 <Text style={s.w_f_18}>孵化记录</Text>
-                <HatchBlock
+                {
+                    u.store.hatchRecord.map((item, idx) => {
+                        return (
+                            <HatchBlock
+                                key={idx}
+                                hatchTitle={`${item.period}天孵化期`}
+                                percent={item.rate}
+                                date={`${item.period}天`}
+                                beginTime={item.created_at}
+                                amount={`总资产 ${item.totalBalance}`}
+                                hadInterest={`已获得利息 ${item.income}`}
+                                allInterest={`可获得总利息 ${item.havedIncome}`}
+                                hatchEndTime={`取出时间 ${item.out_time}`}
+                            />
+                        )
+                    })
+                }
+                {/* <HatchBlock
                     hatchTitle="30天孵化期"
                     percent="0.3"
                     date="30天"
@@ -75,7 +110,7 @@ class ManagerMoney extends Component {
                     hadInterest='已获得利息 0'
                     allInterest='可获得总利息 54545.4'
                     hatchEndTime='取出时间 2019-02-14'
-                />
+                /> */}
             </ScrollView>
         )
     }
@@ -89,7 +124,6 @@ const s = StyleSheet.create({
         fontSize: 18,
         color: "#ffffff",
         textAlign: 'center',
-        marginTop: StatusBar.currentHeight ? StatusBar.currentHeight : 0,
         padding: 6,
         backgroundColor: '#0c0b0b'
     }

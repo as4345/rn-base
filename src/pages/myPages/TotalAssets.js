@@ -4,20 +4,44 @@ import { Button, Toast ,InputItem,List} from 'antd-mobile-rn'
 import { I18n } from '../../language/I18n'
 import Rinput from '../../components/Rinput'
 import CountDownBtn from '../../components/CountDownBtn'
-
+import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux'
 import * as u from '../../utils'
-
+import { observer } from "mobx-react"
+@observer
 export default class TotalAssets extends Component {
     state={
+        tem_amount : 0,
+        tem_num : 0,
+        direct_num : 0,
 
     }
+    componentDidMount(){
+        this.getUserStatistics()
+    }
+    async getUserStatistics(){
+        Toast.loading('加载中',20)
+        let data = await u.post(u.config.baseUrl+'/common/v1.user/getUserStatistics')
+        console.log(data);
+        Toast.hide()
+        if(data.code != 0){
+            Toast.fail(data.msg, 2)
+            return
+        }
+        this.setState({ 
+            tem_income : data.data.tem_income,
+            product_income : data.data.product_income,
+            grade : data.data.level
+        })
+    }
     render() {
+        const _this = this.state;
+        const { email,inviteCode } = u.store.userInfo
         return (
             <KeyboardAvoidingView>
                 <View style={{alignItems:'center'}}>
                     <List style={[styles.FormLayer]}>
                         <Rinput  
-                            placeholder={'1852322323@163.com'} 
+                            placeholder={email} 
                             label={'我的节点'}   
                             editable={true}
                             // value={this.state.a}
@@ -26,10 +50,11 @@ export default class TotalAssets extends Component {
                             //     console.log(this.state.a)}}
                                 >
                             </Rinput>
-                        <Rinput  placeholder={'38501.58628566'} label={'算力总资产'} editable={true} ></Rinput>
-                        <Rinput  placeholder={'25人'} label={'节点人数'} editable={true} ></Rinput>
+                        <Rinput  placeholder={parseFloat(_this.tem_amount).toFixed(2)} label={'算力总资产'} editable={true} ></Rinput>
+                        <Rinput  placeholder={_this.direct_num+'人'} label={'邀请人数'} editable={true} ></Rinput>
+                        <Rinput  placeholder={_this.tem_num +'人'} label={'节点人数'} editable={true} ></Rinput>
                     </List>
-                    <Button activeStyle={{opacity:0.2,backgroundColor:'#fff'}} style={[styles.button]}>查看邀请记录</Button>  
+                    <Button  onClick={Actions['SCENE_INVITERECORD']} activeStyle={{opacity:0.2,backgroundColor:'#fff'}} style={[styles.button]}>查看邀请记录</Button>  
                 </View>
             </KeyboardAvoidingView>
         )

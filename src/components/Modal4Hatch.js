@@ -4,32 +4,103 @@ import {
     StyleSheet,
     Text,
     View,
+    ScrollView,
     ImageBackground,
     Image,
     TouchableOpacity,
     TextInput,
     Button,
-    Modal
+    KeyboardAvoidingView,
+    Modal,
+    Platform
 } from 'react-native'
-import {
+import rna, {
     List,
-    InputItem
+    InputItem,
+    Toast
 } from 'antd-mobile-rn'
+import moment from 'moment'
 
 import { I18n } from '../language/I18n'
 import * as u from '../utils'
+import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux'
 
 class Modal4Hatch extends Component {
 
     state = {
-        isShow: false
+        isShow: false,
+        detail: {},
+        money: ''
     }
 
     componentDidMount() {
 
     }
 
+    // 立即孵化按钮事件
+    hatchFn = async () => {
+        if (this.state.money < 1000) {
+            // Toast.fail('孵化值不能小于1000', 2)
+            rna.Modal.alert('孵化值不能小于1000')
+            return
+        }
+        this.setState({isShow: false, money: ''})
+        Toast.loading('加载中', 20)
+        const res = await u.post(u.config.baseUrl + '/asset/v1.assets/invest', {
+            investamount: this.state.money,
+            productId: this.state.detail.id
+        })
+        Toast.hide()
+        if (res.code != 0) {
+            Toast.fail(res.msg, 2)
+            return 
+        }
+        // 更新孵化记录页数据
+        Toast.loading('加载中', 20)
+        const res2 = await u.post(u.config.baseUrl + '/common/v1/Record/getDayincomLog')
+        Toast.hide()
+        if (res2.code != 0) {
+            Toast.fail(res2.msg, 2)
+            return 
+        }
+        u.store.hatchRecord = res2.data
+        // 更新资产
+        this.getAssets()
+        // 更新个人信息
+        this.getUserInfo()
+
+        Toast.success('操作成功', 2)
+        setTimeout(() => {
+            // 跳到孵化记录页
+            global.changeHomeTab(I18n.t('incubation'))
+        }, 2000)
+    }
+    
+    // 获取资产
+    getAssets = async () => {
+        const res = await u.get(u.config.baseUrl + '/asset/v1.assets/getAssets')
+        if (res.code != 0) {
+            Toast.fail(res.msg, 2)
+            return 
+        }
+        u.store.assets = res.data
+    }
+
+    // 更新个人信息
+    getUserInfo = async () => {
+        const res = await u.post(u.config.baseUrl + '/common/v1.user/getUserInfo')
+        if (res.code != 0) {
+            Toast.fail(res.msg, 2)
+            return 
+        }
+        u.store.setUserInfo(res.data)
+    }
+
     render() {
+        const money = this.state.money ? this.state.money : 0
+        const dayEarnings = this.state.detail.rate ? ((money/100) * this.state.detail.rate).toFixed(2) : '0.00'
+        const allEarnings = this.state.detail.rate ? ((money/100) * this.state.detail.period * this.state.detail.rate).toFixed(2) : '0.00'
+        const getTime = this.state.detail.rate ? moment(new Date().getTime() + this.state.detail.period * 86400000).format('YYYY-MM-DD') : '--'
         return (
             
             <Modal
@@ -38,21 +109,32 @@ class Modal4Hatch extends Component {
                 visible={this.state.isShow}
                 onRequestClose={() => {}}
             >
-                <View style={s.container}>
+            <ScrollView style={{flex: 1}} keyboardShouldPersistTaps="handled">
+            <KeyboardAvoidingView>
+                <View style={{...s.container, height: u.HEIGHT}}>
                     <View style={s.inner_con}>
                         <View style={s.v1}>
                             <Text style={s.t0}>理财孵化</Text>
-                            <TouchableOpacity style={s.close} onPress={() => {this.setState({isShow: false})}}>
+                            <TouchableOpacity style={s.close} onPress={() => {this.setState({isShow: false, money: ''})}}>
                                 <Text style={{fontFamily: 'iconfont', fontSize: 18, color:'#000'}}>&#xe611;</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={s.v2}>
                             <Text style={s.t1}>请输入理财数值</Text>
-                            <TextInput style={s.ipt}></TextInput>
-                            <Text style={s.t2}>日利息收益：0.00</Text>
-                            <Text style={s.t2}>总利息收益：0.00</Text>
-                            <Text style={s.t2}>取出日期：2018-11-22</Text>
-                            <TouchableOpacity style={s.btn}>
+                            <View style={{justifyContent: 'flex-start'}}>
+                                <InputItem
+                                    ref='money'
+                                    value={this.state.money}
+                                    onChange={val => {
+                                        this.setState({'money': val.replace(/[^\d]+/g, '')})
+                                    }}
+                                    style={s.ipt}
+                                    placeholder={`可用余额:${u.store.assets.balance ? parseFloat(u.store.assets.balance).toFixed(2) : '--'}`}></InputItem>
+                            </View>
+                            <Text style={s.t2}>日利息收益：{dayEarnings}</Text>
+                            <Text style={s.t2}>总利息收益：{allEarnings}</Text>
+                            <Text style={s.t2}>取出日期：{getTime}</Text>
+                            <TouchableOpacity onPress={this.hatchFn}>
                                 <Text style={s.t3}>确定</Text>
                             </TouchableOpacity>
                         </View>
@@ -65,6 +147,8 @@ class Modal4Hatch extends Component {
                         </View>
                     </View>
                 </View>
+            </KeyboardAvoidingView>
+            </ScrollView>
             </Modal>
             
         )
@@ -79,7 +163,6 @@ const s = StyleSheet.create({
     },
     inner_con: {
         width: u.rw(280),
-        height: u.rh(405),
         marginLeft: 'auto',
         marginRight: 'auto',
         backgroundColor: '#fff'
@@ -111,6 +194,7 @@ const s = StyleSheet.create({
         color: "#000000"
     },
     ipt: {
+        marginLeft: 0,
         marginTop: 13,
         marginBottom: 15,
         height: 40,
@@ -119,25 +203,31 @@ const s = StyleSheet.create({
         borderStyle: "solid",
         borderWidth: 1,
         borderColor: "#bfbfbf",
-        paddingLeft: 12,
-        paddingRight: 12
-    },
-    btn: {
-        marginTop: 25,
-        marginBottom: 25,
-        backgroundColor: '#dcb125',
-        width: 250,
-        height: 39,
-        justifyContent: 'center'
     },
     v3: {
         padding: 15,
 	    backgroundColor: "#eeeeee"
     },
     t3: {
+        width: u.rw(250),
+        height: u.rh(39),
+        marginTop: u.rh(25),
+        marginBottom: u.rh(25),
+        marginLeft: 'auto',
+        marginRight: 'auto',
         textAlign: 'center',
+        textAlignVertical:'center',
+        backgroundColor: '#dcb125',
         color: "#000000",
         fontSize: 18,
+        borderRadius: 5,
+        ...Platform.select({
+            ios:{
+                lineHeight: u.rh(39),
+            },
+            android:{
+            }
+        }),
     },
     t4: {
         fontSize: 13,

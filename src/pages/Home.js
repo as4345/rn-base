@@ -9,6 +9,7 @@ import {
 import TabNavigator from 'react-native-tab-navigator'
 import ManagerMoney from './ManagerMoney'
 import HatchRecord from './HatchRecord'
+import MyPage from './myPages/myPage'
 import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux'
 import * as u from '../utils'
 
@@ -19,12 +20,12 @@ import { I18n } from '../language/I18n'
 class Home extends Component {
 
     state = {
-        selectedTab: I18n.t('home')
+        selectedTab: I18n.t('managerMoney')
     }
 
     tabArr = [
         {
-            name:  I18n.t('home'),
+            name:  I18n.t('managerMoney'),
             component: <ManagerMoney />,
             defaultIcon: <Text style={{fontFamily: 'iconfont', fontSize: 18, color:'#fff'}}>&#xe618;</Text>,
             selectedIcon: <Text style={{fontFamily: 'iconfont', fontSize: 18, color:'#dcb125'}}>&#xe618;</Text>
@@ -37,7 +38,7 @@ class Home extends Component {
         },
         {
             name:  I18n.t('mine'),
-            component: <View><Text>我的页面</Text></View>,
+            component: <MyPage />,
             defaultIcon: <Text style={{fontFamily: 'iconfont', fontSize: 18, color:'#fff'}}>&#xe601;</Text>,
             selectedIcon: <Text style={{fontFamily: 'iconfont', fontSize: 18, color:'#dcb125'}}>&#xe601;</Text>
         },
@@ -45,6 +46,12 @@ class Home extends Component {
     
 
     componentDidMount() {
+        // 暴漏切换tab方法到全局
+        global.changeHomeTab = val => {
+            this.setState({
+                selectedTab: val
+            })
+        }
     }
 
     render() {
@@ -62,7 +69,7 @@ class Home extends Component {
                                     selectedTitleStyle={{color:'#dcb125'}}
                                     renderIcon={() => item.defaultIcon}
                                     renderSelectedIcon={() => item.selectedIcon}
-                                    onPress={() => this.setState({ selectedTab: item.name })}
+                                    onPress={() => global.changeHomeTab(item.name)}
                                 >
                                     {item.component}
                                 </TabNavigator.Item>

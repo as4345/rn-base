@@ -4,33 +4,101 @@ import { Button, Toast ,InputItem,List} from 'antd-mobile-rn'
 import { I18n } from '../../language/I18n'
 import Rinput from '../../components/Rinput'
 import CountDownBtn from '../../components/CountDownBtn'
-
+import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux'
 import * as u from '../../utils'
-
+import { observer } from "mobx-react"
+@observer
 export default class ChangePassword extends Component {
     state={
-
+        oldpassword : '',
+        password : '',
+        repassword : '',
+        emailcode : '',
+    }
+    async refor(){
+        const _this = this.state;
+        if(!_this.oldpassword){ Toast.fail('请输入旧密码',2); return}
+        if(!_this.password){ Toast.fail('请输入新密码',2); return}
+        if(!_this.repassword){ Toast.fail('请输入确定密码',2); return}
+        if(!_this.emailcode){ Toast.fail('请输入邮箱验证码',2); return}
+        if(_this.password!=_this.repassword){ Toast.fail('两次密码必须一致',2); return}
+        Toast.loading('加载中',20)
+        let data = await u.post(u.config.baseUrl+'/common/v1/user/updatePassword',{
+            oldpassword : _this.oldpassword,
+            password : _this.password,
+            repassword : _this.repassword,
+            emailcode : _this.emailcode,
+        })
+        console.log(data);
+        Toast.hide()
+        if(data.code != 0){
+            Toast.fail(data.msg)
+            return
+        }
+        Toast.success('修改成功',2);104
+        this.loginOut();
+        
+    }
+    async getCode(){
+        const _this = this.state;
+        Toast.loading('加载中',20)
+        let data = await u.post(u.config.baseUrl+'/common/v1.user/getEmailCaptcha')
+        Toast.hide()
+        if (data.code != 0) {
+            Toast.fail(data.msg, 2)
+            return 
+        }
+        this.refs.code.timeOut()
+        Toast.success(data.msg, 2)
+    }
+    async loginOut(){
+        Toast.loading('加载中',20)
+        let data = await u.post(u.config.baseUrl+'/common/v1.user/loginOut')
+        Toast.hide()
+        if (data.code != 0) {
+            Toast.fail(data.msg, 2)
+            return 
+        }
+        await u.storage.removeItem('tokenData')
+        u.store.setUserInfo({})
+        Actions.replace('SCENE_LOGIN')
     }
     render() {
+        const _this = this.state;
         return (
             <KeyboardAvoidingView>
                 <View style={{alignItems:'center'}}>
                     <List style={[styles.FormLayer]}>
                         <Rinput  
-                            placeholder={'请输入邮箱'} 
+                            placeholder={'请输入旧登录密码'} 
                             label={'旧登录密码'}   
-                            
-                            // value={this.state.a}
-                            // onChange={(val)=>{
-                            //     this.setState({a : val})
-                            //     console.log(this.state.a)}}
-                                >
-                            </Rinput>
-                        <Rinput  placeholder={'请输入新密码'} label={'新登录密码'} ></Rinput>
-                        <Rinput  placeholder={'请再次输入密码'} label={'确认新密码'} ></Rinput>
-                        <Rinput  placeholder={'请输入验证码'} label={'邮箱验证码'} RightItem={<CountDownBtn text={'点击获取'} ></CountDownBtn>} ></Rinput>
+                            value={_this.oldpassword}
+                            onChange={(val)=>{ this.setState({oldpassword : val}) }}
+                            type="password">
+                        </Rinput>
+                        <Rinput  
+                            placeholder={'请输入新密码'} 
+                            label={'新登录密码'} 
+                            value={_this.password}
+                            onChange={(val)=>{ this.setState({password : val}) }}
+                            type="password">
+                        </Rinput>
+                        <Rinput  
+                            placeholder={'请再次输入密码'} 
+                            label={'确认新密码'} 
+                            value={_this.repassword}
+                            onChange={(val)=>{ this.setState({repassword : val}) }}
+                            type="password">
+                        </Rinput>
+                        <Rinput  
+                            placeholder={'请输入验证码'} 
+                            label={'邮箱验证码'} 
+                            RightItem={<CountDownBtn ref="code" text={'点击获取'} start={()=>{ this.getCode()}} ></CountDownBtn>} 
+                            value={_this.emailcode}
+                            onChange={(val)=>{ this.setState({emailcode : val}) }}>
+                        </Rinput>
                     </List>
-                    <Button activeStyle={{opacity:0.2,backgroundColor:'#fff'}} style={[styles.button]} >提交</Button>  
+                    <Button  onClick={()=>{ this.refor() }} activeStyle={{opacity:0.2,backgroundColor:'#fff'}} style={[styles.button]} >提交</Button>  
                 </View>
             </KeyboardAvoidingView>
         )

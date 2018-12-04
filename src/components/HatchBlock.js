@@ -8,24 +8,28 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import MarqueeLabel from 'react-native-lahk-marquee-label'
+import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux'
 import * as u from '../utils'
 
 export default props => {
-    const bgImg =  props.title ? require('../assets/img/indexBg.png') :  require('../assets/img/recordingBg.png')
+    const bgImg = props.title ? require('../assets/img/indexBg.png') : require('../assets/img/recordingBg.png')
+    const time = props.mqrqueeLabel && props.mqrqueeLabel.length ? props.mqrqueeLabel.length * 0.05 * 10000 : 0
     return (
         <View>            
             <ImageBackground style={s.bg_con} resizeMode='stretch' source={bgImg}>
                 {
                     props.mqrqueeLabel && 
-                    <View style={s.mq_con}>
-                        <MarqueeLabel
-                            duration={30000}
-                            text={props.mqrqueeLabel}
-                            textContainerWidth={MarqueeLabel.length * 12}
-                            textContainerHeight={14}
-                            textStyle={{ fontSize: 13, color: '#fff', }}
-                        />
-                    </View>
+                    <TouchableOpacity onPress={() => {Actions['SCENE_BULLETINBOARD']()}}> 
+                        <View style={s.mq_con}>
+                            <MarqueeLabel
+                                duration={time}
+                                text={props.mqrqueeLabel}
+                                textContainerWidth={props.mqrqueeLabel.length * 12}
+                                textContainerHeight={14}
+                                textStyle={{ fontSize: 13, color: '#fff', }}
+                            />
+                        </View>
+                    </TouchableOpacity>       
                 }
                 <View style={s.fq_con}>
                     <View style={s.fq_title}>
@@ -92,13 +96,13 @@ const s = StyleSheet.create({
         overflow: 'hidden'
     },
     fq_con: {
-        marginLeft: 13,
-        marginRight: 13,
+        marginLeft: 'auto',
+        marginRight: 'auto',
     },
     fq_title: {
         height: u.rh(40),
         flexDirection: 'row',
-        borderBottomColor: '#ffffff45',
+        borderBottomColor: '#ffffff10',
         borderBottomWidth: 1,
         alignItems: 'center'
     },
