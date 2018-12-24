@@ -56,18 +56,14 @@ class Modal4Hatch extends Component {
             return 
         }
         // 更新孵化记录页数据
-        Toast.loading('加载中', 20)
-        const res2 = await u.post(u.config.baseUrl + '/common/v1/Record/getDayincomLog')
-        Toast.hide()
-        if (res2.code != 0) {
-            Toast.fail(res2.msg, 2)
-            return 
-        }
-        u.store.hatchRecord = res2.data
+        global.refreshHatchRecord && global.refreshHatchRecord()
+
         // 更新资产
         this.getAssets()
         // 更新个人信息
         this.getUserInfo()
+        // 更新总资产及收益
+        this.getUserStatistics()
 
         Toast.success('操作成功', 2)
         setTimeout(() => {
@@ -84,6 +80,19 @@ class Modal4Hatch extends Component {
             return 
         }
         u.store.assets = res.data
+    }
+    
+    // 获取资产及收益
+    getUserStatistics = async () => {
+        Toast.loading('加载中',20)
+        let data = await u.post(u.config.baseUrl+'/common/v1.user/getUserStatistics')
+        console.log(data);
+        Toast.hide()
+        if(data.code != 0){
+            Toast.fail(data.msg, 2)
+            return
+        }
+        u.store.statistics = data.data
     }
 
     // 更新个人信息

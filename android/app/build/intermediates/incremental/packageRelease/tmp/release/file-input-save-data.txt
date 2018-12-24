@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Dec 04 15:20:39 CST 2018
+#Fri Dec 21 18:24:51 CST 2018
 5.base=D\:\\work\\jbp-rn\\android\\app\\build\\intermediates\\transforms\\mergeJniLibs\\release\\0
 22.path=lib/armeabi-v7a/libfb.so
 32.set=NATIVE_RESOURCE

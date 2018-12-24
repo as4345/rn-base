@@ -6,7 +6,7 @@ import CryptoJS  from'crypto-js';
 import store from '../store'
 import {stringify} from 'qs'
 import { AsyncStorage } from 'react-native'
-import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux'
+import { Scene, Router, ActionConst, Actions, Linking } from 'react-native-router-flux'
 import {
     List,
     InputItem,
@@ -24,9 +24,11 @@ ax.interceptors.request.use(
         let tokenData = await AsyncStorage.getItem('tokenData')
         tokenData = tokenData ? JSON.parse(tokenData) : {}
         const userToken = tokenData.token ? tokenData.token.access_token : ''
+        config.headers.common['client-type'] = 'app'
+        config.headers.common.version = 'v1.0'
         config.headers.common.sign = createSign() //接口加密验证
-        if(userToken){//所以请求追加的头部
-            config.headers.common.Authorization = 'Bearer'+' '+userToken //token验证
+        if (userToken) {//所以请求追加的头部
+            config.headers.common.Authorization = 'Bearer' + ' '+ userToken //token验证
         }
         config.data = stringify(config.data)
         return config
@@ -38,6 +40,10 @@ ax.interceptors.request.use(
 ax.interceptors.response.use(
     response => {
         const toLoginArr = [1, 1001, 1005, 3006]
+        if ( response.data.redirect ) { // 转跳接口返回指定页面
+            Linking.openURL(response.data.redirect)
+            return
+        }
         if (toLoginArr.indexOf(response.data.code) > -1) { // 跳转登录页
             store.setUserInfo({})
             store.setTokenData({})

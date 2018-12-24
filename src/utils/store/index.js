@@ -17,6 +17,9 @@ class store {
 	// 孵化记录
 	@observable hatchRecord = []
 
+	// 总资产及获利信息
+	@observable statistics = {}
+
 	// 计时测试
 	@observable stayHomeTime = 0
 	@action setStayHomeTime(data) {

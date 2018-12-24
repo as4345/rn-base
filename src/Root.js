@@ -39,6 +39,7 @@ export default class Root extends Component {
                     type={ActionConst.RESET}
                     duration={0}
                     navTransparent ={true}
+                    onEnter={u.hotUpdate} // 登录页检测更新
                 />
                 <Scene
                     key={'SCENE_HOME'}

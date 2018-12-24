@@ -1,4 +1,4 @@
-com.jubaopen
+com.awesomeproject
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1002,6 +1002,7 @@ layout ucrop_view
 menu ucrop_menu_activity
 mipmap ic_launcher
 mipmap ic_launcher_round
+string CODE_PUSH_APK_BUILD_TIME
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

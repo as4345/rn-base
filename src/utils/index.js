@@ -24,3 +24,7 @@ export const storage = AsyncStorage
 import Download from './download'
 export const download = Download
 
+// 热更新
+import HotUpdate from './hotUpdate'
+export const hotUpdate = HotUpdate
+

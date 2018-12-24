@@ -1,4 +1,4 @@
-#Tue Dec 04 15:20:33 CST 2018
+#Fri Dec 21 18:24:47 CST 2018
 base.0=D\:\\work\\jbp-rn\\android\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
 path.0=classes.dex
 renamed.0=classes.dex

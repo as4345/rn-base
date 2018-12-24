@@ -28,9 +28,9 @@ export default class TotalAssets extends Component {
             return
         }
         this.setState({ 
-            tem_income : data.data.tem_income,
-            product_income : data.data.product_income,
-            grade : data.data.level
+            tem_amount : data.data.tem_amount,
+            direct_num : data.data.direct_num,
+            tem_num : data.data.tem_num
         })
     }
     render() {

@@ -19,7 +19,7 @@ import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux'
 
 import HatchBlock from '../components/HatchBlock'
 import Modal4Hatch from '../components/Modal4Hatch'
-
+import RollView from '../components/RollView'
 import { I18n } from '../language/I18n'
 import * as u from '../utils'
 
@@ -101,11 +101,24 @@ class ManagerMoney extends Component {
             return false
         }
     }
-
+    itemView= (data) => {
+        const detail = this.state.detail.title ? `${this.state.detail.title} ${this.state.detail.desc}`  : null
+        return (
+            <HatchBlock
+            key={data.item}
+            mqrqueeLabel={data.index == 0 && detail ? detail : null}
+            title={data.item.name}
+            percent={data.item.rate}
+            date={`${data.item.period}天`}
+            beginTime={data.item.created_at}
+            pressFn={() => {this.refs.Modal4Hatch.setState({isShow: true, detail: data.item})}}
+            />
+        )
+    }
     render() {
         const detail = this.state.detail.title ? `${this.state.detail.title} ${this.state.detail.desc}`  : null
         return (
-            <ScrollView style={s.container}>
+            <View style={s.container}>
                 <StatusBar
                     animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden
                     hidden={false}  //是否隐藏状态栏。
@@ -113,8 +126,21 @@ class ManagerMoney extends Component {
                     translucent={false}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
                     barStyle='light-content'
                 />
-                <Text style={s.w_f_18}>孵化期</Text>
-                {
+                
+                <RollView
+                headView={<Text style={s.w_f_18}>孵化期</Text>}
+                itemView={this.itemView}
+                disabledReached={true}
+                url={'/common/v1/System/getProduct'}
+                refreshCallback={()=>{
+                    this.getUserInfo()
+                    this.getProduct()
+                    this.getDetail()
+                    this.getAssets()
+                }}
+                >
+                </RollView>
+                {/* {
                     this.state.productArr.map((item, idx) => {
                         return (
                             <HatchBlock
@@ -128,7 +154,7 @@ class ManagerMoney extends Component {
                             />
                         )
                     })
-                }
+                } */}
                 {/* <HatchBlock
                     mqrqueeLabel={this.state.MarqueeLabel}
                     title="30天孵化期"
@@ -152,7 +178,7 @@ class ManagerMoney extends Component {
                 <Modal4Hatch
                     ref='Modal4Hatch'
                 />
-            </ScrollView>
+            </View>
         )
     }
 }

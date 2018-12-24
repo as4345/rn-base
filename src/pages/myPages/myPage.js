@@ -8,8 +8,9 @@ import grade0 from '../../assets/img/grade-0.png'
 import grade1 from '../../assets/img/grade-1.png'
 import grade2 from '../../assets/img/grade-2.png'
 import { observer } from "mobx-react"
+import RefreshView from '../../components/RefreshView'
 @observer
-export default class myPage extends Component {
+class myPage extends Component {
     state={
         totalAssets : 0,
         tem_income : 0,
@@ -19,9 +20,8 @@ export default class myPage extends Component {
         gradeImgs: [grade0,grade1,grade2],
     }
     componentDidMount(){
-        this.getAssets()
-        this.getUserStatistics()
     }
+    didMountFn = () => new Promise.all([this.getAssets(), this.getUserStatistics()])
     //item点击事件
     itemActions = async path => {
         switch(path){
@@ -56,32 +56,30 @@ export default class myPage extends Component {
         default: Actions[path]()
         }
     }
-    async getAssets(){
+    getAssets = () => new Promise(async (rl, rj) => {
         Toast.loading('加载中',20)
         let data = await u.post(u.config.baseUrl+'/asset/v1.assets/getAssets')
-        console.log(data);
         Toast.hide()
         if(data.code != 0){
             Toast.fail(data.msg, 2)
+            rj()
             return
         }
-        this.setState({ totalAssets : data.data.totalAssets})
-    }
-    async getUserStatistics(){
+        u.store.assets = data.data
+        rl()
+    })
+    getUserStatistics = () => new Promise(async (rl, rj) => {
         Toast.loading('加载中',20)
         let data = await u.post(u.config.baseUrl+'/common/v1.user/getUserStatistics')
-        console.log(data);
         Toast.hide()
         if(data.code != 0){
             Toast.fail(data.msg, 2)
+            rj()
             return
         }
-        this.setState({ 
-            tem_income : data.data.tem_income,
-            product_income : data.data.product_income,
-            grade : data.data.level
-        })
-    }
+        u.store.statistics = data.data
+        rl()
+    })
     async loginOut(){
         Toast.loading('加载中',20)
         let data = await u.post(u.config.baseUrl+'/common/v1.user/loginOut')
@@ -98,123 +96,130 @@ export default class myPage extends Component {
         const { email,inviteCode } = u.store.userInfo
         const _this = this.state
         return (
-            <ScrollView>
-            <View style={{flex:1}}>
-                <ImageBackground source={require('../../assets/img/mybg.png')} style={{width:u.WIDTH,height:u.rw(200),marginBottom:u.rw(35)}}>
-                    <View style={[styles.topBar]}>
-                        <Image source={require('../../assets/img/indexMoney.png')} style={{width:u.rw(55),height:u.rw(55),marginTop:u.rh(25)}}></Image>
-                        <Text style={{color:'#fff',marginTop:u.rh(20)}}>{email || '--'}</Text>
-                        <Text style={{color:'#fff',marginTop:u.rh(10)}}>邀请码：{inviteCode}</Text>
-                        {
-                            _this.grade != 0 && <Image source={_this.gradeImgs[_this.grade-1]} style={{width:u.rw(79.5),height:u.rw(20.5),marginTop:u.rh(25),position:'absolute',right:u.rw(5),top:u.rw(75)}}></Image>
-                        }
-                        <View style={[styles.assetsLayer]}>
-                            <View style={{flex:1, justifyContent:'center',borderRightColor:'#BFBFBF',borderRightWidth:1}}>
-                                <View style={[styles.assetsTextBar]}><Text style={[styles.iconfont]}>&#xe670;</Text><Text style={[styles.assetsText]}>总资产</Text></View>
-                                <Text style={styles.assetsNum}>{parseFloat(_this.totalAssets).toFixed(2)}</Text>
+            
+            <RefreshView
+                rView={
+                    <ScrollView>
+                    <View style={{flex:1}}>
+                        <ImageBackground source={require('../../assets/img/mybg.png')} style={{width:u.WIDTH,height:u.rw(200),marginBottom:u.rw(35)}}>
+                            <View style={[styles.topBar]}>
+                                <Image source={require('../../assets/img/indexMoney.png')} style={{width:u.rw(55),height:u.rw(55),marginTop:u.rh(25)}}></Image>
+                                <Text style={{color:'#fff',marginTop:u.rh(20)}}>{email || '--'}</Text>
+                                <Text style={{color:'#fff',marginTop:u.rh(10)}}>邀请码：{inviteCode}</Text>
+                                {
+                                    _this.grade != 0 && <Image source={_this.gradeImgs[_this.grade-1]} style={{width:u.rw(79.5),height:u.rw(20.5),marginTop:u.rh(25),position:'absolute',right:u.rw(5),top:u.rw(75)}}></Image>
+                                }
+                                <View style={[styles.assetsLayer]}>
+                                    <View style={{flex:1, justifyContent:'center',borderRightColor:'#BFBFBF',borderRightWidth:1}}>
+                                        <View style={[styles.assetsTextBar]}><Text style={[styles.iconfont]}>&#xe670;</Text><Text style={[styles.assetsText]}>总资产</Text></View>
+                                        <Text style={styles.assetsNum}>{parseFloat(u.store.assets.totalAssets).toFixed(2)}</Text>
+                                    </View>
+                                    <View style={{flex:1, justifyContent:'center',borderRightColor:'#BFBFBF',borderRightWidth:1}}>
+                                        <View style={[styles.assetsTextBar]}><Text style={[styles.iconfont]}>&#xe636;</Text><Text style={[styles.assetsText]}>团队收益</Text></View>
+                                        <Text style={styles.assetsNum}>{parseFloat(u.store.statistics.tem_income).toFixed(2)}</Text>
+                                    </View>
+                                    <View style={{flex:1, justifyContent:'center'}}>
+                                        <View style={[styles.assetsTextBar]}><Text style={[styles.iconfont]}>&#xe604;</Text><Text style={[styles.assetsText]}>孵化收益</Text></View>
+                                        <Text style={styles.assetsNum}>{ parseFloat(u.store.statistics.product_income).toFixed(2)}</Text>
+                                    </View>
+                                </View>
                             </View>
-                            <View style={{flex:1, justifyContent:'center',borderRightColor:'#BFBFBF',borderRightWidth:1}}>
-                                <View style={[styles.assetsTextBar]}><Text style={[styles.iconfont]}>&#xe636;</Text><Text style={[styles.assetsText]}>团队收益</Text></View>
-                                <Text style={styles.assetsNum}>{parseFloat(_this.tem_income).toFixed(2)}</Text>
-                            </View>
-                            <View style={{flex:1, justifyContent:'center'}}>
-                                <View style={[styles.assetsTextBar]}><Text style={[styles.iconfont]}>&#xe604;</Text><Text style={[styles.assetsText]}>孵化收益</Text></View>
-                                <Text style={styles.assetsNum}>{ parseFloat(_this.product_income).toFixed(2)}</Text>
-                            </View>
+                            
+                            <Modal
+                            title="点击确定退出！"
+                            transparent
+                            // onClose={()=>{ this.setState({visible : false}) }}
+                            maskClosable
+                            visible={this.state.visible}
+                            // closable
+                            footer={[
+                                { text: '取消', onPress: ()=>{ this.setState({visible : false}) } },
+                                { text: '确定', onPress: () => { this.loginOut(); } },
+                            ]}
+                            />
+                        </ImageBackground>
+                        <View style={{flexDirection:'row',backgroundColor:'#fff',width:u.WIDTH,marginTop:u.rh(5),paddingBottom:u.rh(10),paddingTop:u.rh(10)}}>
+                                <TouchableOpacity style={{flex:1}} onPress={() => {this.itemActions('SCENE_CHARGECOIN')}}>
+                                    <Text style={{color:'#DCB125',fontSize:14,textAlign:'center'}}>充币</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{flex:1}}  onPress={()=>{ this.itemActions('SCENE_EXTRACTWALLET')}}>
+                                    <Text style={{color:'#DCB125',fontSize:14,textAlign:'center'}}>提币</Text>
+                                </TouchableOpacity>
+                        </View>
+                        <View style={[styles.itemLayer,{marginTop:u.rh(10)}]}>
+                            <TouchableOpacity  onPress={()=>{ this.itemActions('SCENE_SHARE') }}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe657;</Text>
+                                    <Text style={styles.itemText}>推荐好友</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_TOTALASSETS') }}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe609;</Text>
+                                    <Text style={styles.itemText}>算力资产</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_FRIENDSROTATION') }}> 
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe68e;</Text>
+                                    <Text style={styles.itemText}>好友互转</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_DEALRECORD') }}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe63b;</Text>
+                                    <Text style={styles.itemText}>交易记录</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            
+                        </View>
+                        <View style={[styles.itemLayer,{marginTop:u.rh(10)}]}>
+                            <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_WALLETADMIN') }}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe657;</Text>
+                                    <Text style={styles.itemText}>钱包管理</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_SECURITY_SETTING') }}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe625;</Text>
+                                    <Text style={styles.itemText}>安全设置</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>{ Linking.openURL(u.config.apkUrl)}}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe600;</Text>
+                                    <Text style={styles.itemText}>下载最新版app</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_PROPOSAL') }}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe682;</Text>
+                                    <Text style={styles.itemText}>反馈建议</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity  onPress={()=>{ this.itemActions('out') }}>
+                                <View style={[styles.item]}>
+                                    <Text style={[styles.iconfont]}>&#xe65f;</Text>
+                                    <Text style={styles.itemText}>安全退出</Text>
+                                    <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
+                                </View>
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    
-                    <Modal
-                    title="点击确定退出！"
-                    transparent
-                    // onClose={()=>{ this.setState({visible : false}) }}
-                    maskClosable
-                    visible={this.state.visible}
-                    // closable
-                    footer={[
-                        { text: '取消', onPress: ()=>{ this.setState({visible : false}) } },
-                        { text: '确定', onPress: () => { this.loginOut(); } },
-                    ]}
-                    />
-                </ImageBackground>
-                <View style={{flexDirection:'row',backgroundColor:'#fff',width:u.WIDTH,marginTop:u.rh(5),paddingBottom:u.rh(10),paddingTop:u.rh(10)}}>
-                        <TouchableOpacity style={{flex:1}} onPress={() => {this.itemActions('SCENE_CHARGECOIN')}}>
-                            <Text style={{color:'#DCB125',fontSize:14,textAlign:'center'}}>充币</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flex:1}}  onPress={()=>{ this.itemActions('SCENE_EXTRACTWALLET')}}>
-                            <Text style={{color:'#DCB125',fontSize:14,textAlign:'center'}}>提币</Text>
-                        </TouchableOpacity>
-                </View>
-                <View style={[styles.itemLayer,{marginTop:u.rh(10)}]}>
-                    <TouchableOpacity  onPress={()=>{ this.itemActions('SCENE_SHARE') }}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe657;</Text>
-                            <Text style={styles.itemText}>推荐好友</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_TOTALASSETS') }}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe609;</Text>
-                            <Text style={styles.itemText}>算力资产</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_FRIENDSROTATION') }}> 
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe68e;</Text>
-                            <Text style={styles.itemText}>好友互转</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_DEALRECORD') }}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe63b;</Text>
-                            <Text style={styles.itemText}>交易记录</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    
-                </View>
-                <View style={[styles.itemLayer,{marginTop:u.rh(10)}]}>
-                    <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_WALLETADMIN') }}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe657;</Text>
-                            <Text style={styles.itemText}>钱包管理</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_SECURITY_SETTING') }}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe625;</Text>
-                            <Text style={styles.itemText}>安全设置</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{ Linking.openURL(u.config.apkUrl)}}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe600;</Text>
-                            <Text style={styles.itemText}>下载最新版app</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{ this.itemActions('SCENE_PROPOSAL') }}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe682;</Text>
-                            <Text style={styles.itemText}>反馈建议</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity  onPress={()=>{ this.itemActions('out') }}>
-                        <View style={[styles.item]}>
-                            <Text style={[styles.iconfont]}>&#xe65f;</Text>
-                            <Text style={styles.itemText}>安全退出</Text>
-                            <Text style={[styles.iconfont,{transform:[{rotateY:'180deg'}],color:'#808080',fontSize:11}]}>&#xe602;</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </View>
-            </ScrollView>
+                    </ScrollView>
+                }
+                freshFn={this.didMountFn}
+            />
+            
         )
     }
 }
@@ -272,3 +277,4 @@ const styles = StyleSheet.create({
     }
 })
 
+export default myPage

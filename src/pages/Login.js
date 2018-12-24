@@ -9,7 +9,8 @@ import {
     TouchableOpacity,
     StatusBar,
     ScrollView,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    Linking,
 } from 'react-native'
 import {
     List,
@@ -73,8 +74,10 @@ class Login extends Component {
         }
         await u.storage.setItem('loginData', this.state.username) // 成功登录后存储帐号
         let newLocalLoginDataArr = JSON.parse(JSON.stringify(this.state.localLoginDataArr))
-        newLocalLoginDataArr.unshift(this.state.username)
-        newLocalLoginDataArr.splice(3, 99)
+        if (!newLocalLoginDataArr.filter(item => item == this.state.username).length) { // 判断本地是否有相同帐号存在
+            newLocalLoginDataArr.unshift(this.state.username)
+            newLocalLoginDataArr.splice(3, 99)
+        }
         await u.storage.setItem('loginDataArr', JSON.stringify(newLocalLoginDataArr))
 
         u.store.setUserInfo(res2.data)
@@ -83,9 +86,7 @@ class Login extends Component {
 
     // 获取验证码
     getImgCaptcha = async () => {
-        Toast.loading('加载中',20)
         let res = await u.get(u.config.baseUrl+'/common/v1.system/getImgCaptcha?device_id=' + DeviceInfo.getUniqueID())
-        Toast.hide()
         if(res.code != 0){
             Toast.fail(res.msg)
             return
@@ -119,6 +120,7 @@ class Login extends Component {
             this.setState({localLoginDataArr: JSON.parse(localLoginDataArr)})
         }
         this.getImgCaptcha()
+        u.hotUpdate()
     }
 
     render() {
@@ -132,7 +134,7 @@ class Login extends Component {
                     translucent={false}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
                     barStyle='light-content'
                 />
-                <ImageBackground style={s.backgroundImage} source={require('../assets/img/login_bg.jpg')}>
+                <ImageBackground style={s.backgroundImage} imageStyle={{resizeMode: 'stretch'}} source={require('../assets/img/login_bg.jpg')}>
                     <View style={s.rFlex}>
                         <TouchableOpacity style={s.btnCon} onPress={() => {Actions['SCENE_REGISTER']()}}>
                             <Text style={s.opBtnText}>{I18n.t('register')}</Text>
@@ -203,7 +205,7 @@ class Login extends Component {
                             </List>
                             {   
                                 this.state.isShowLocalUsername && 
-                                <ScrollView style={{...s.v1, maxHeight: u.rh(140)}}>
+                                <View style={{...s.v1}}>
                                     {
                                         this.state.localLoginDataArr.map((item, idx) => {
                                             return (
@@ -222,7 +224,7 @@ class Login extends Component {
                                             )
                                         })
                                     }
-                                </ScrollView>
+                                </View>
                             }
                         </View>
                         
@@ -233,7 +235,10 @@ class Login extends Component {
                                 </ImageBackground>
                             </TouchableOpacity>
                         </View>
-                        <View style={{ ...s.rFlex, paddingRight: 5 }}>
+                        <View style={{ ...s.rFlex, ...s.v3, }}>
+                            <TouchableOpacity style={s.btnCon}  onPress={() => {Linking.openURL(u.config.mWeb)}}>
+                                <Text style={s.opBtnText}>手机官网</Text>
+                            </TouchableOpacity>
                             <TouchableOpacity style={s.btnCon}  onPress={() => {Actions['SCENE_FORGOTPASSWORD']()}}>
                                 <Text style={s.opBtnText}>{I18n.t('forgetPassword')}</Text>
                             </TouchableOpacity>
@@ -253,7 +258,7 @@ const s = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         width: u.WIDTH,
-        height: u.HEIGHT
+        height: u.HEIGHT,
     },
     rFlex: {
         alignItems: 'flex-end',
@@ -305,7 +310,7 @@ const s = StyleSheet.create({
         flex: 1
     },
     submitCon: {
-        marginTop: u.rh(50)
+        marginTop: u.rh(50),
     },
     submitOp: {
         width: u.rw(300),
@@ -352,7 +357,12 @@ const s = StyleSheet.create({
         paddingRight: u.rw(12),
         paddingLeft: u.rw(12),
 
-    }
+    },
+    v3: {
+        marginTop: u.rh(45),
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
 
 })
 
